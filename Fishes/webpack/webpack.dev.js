@@ -5,20 +5,12 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: paths.outputPath,
-    chunkFilename: '[name].js'
+    chunkFilename: '[name].js',
+    publicPath: '/',
   },
   devtool: 'source-map',
   module: {
     rules: [
-      {
-        enforce: 'pre',
-        test: /\.(js|jsx)$/,
-        loader: 'eslint-loader',
-        include: paths.src,
-        options: {
-          emitWarning: true,
-        },
-      },
       {
         test: /\.(css|scss)$/,
         use: [
@@ -41,6 +33,6 @@ module.exports = {
   devServer: {
     contentBase: paths.outputPath,
     compress: true,
-    publicPath: paths.outputPath,
+    // publicPath: paths.outputPath
   },
 };
